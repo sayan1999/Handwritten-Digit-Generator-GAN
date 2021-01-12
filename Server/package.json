@@ -1,0 +1,14 @@
+{
+    "name": "ugly-digits",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "@tensorflow/tfjs-node": "^2.8.3",
+        "d3": "^6.3.1",
+        "express": "^4.17.1",
+        "node-gyp": "^7.1.2",
+        "process": "^0.11.10"
+    }
+}

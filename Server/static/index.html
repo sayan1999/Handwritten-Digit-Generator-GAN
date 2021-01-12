@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Primary Meta Tags -->
+        <title>Ugly Digits</title>
+        <meta name="title" content="Ugly Digits">
+        <meta name="description" content="El Digito: AI Handwriter">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://ugly-digits.herokuapp.com/">
+        <meta property="og:title" content="Ugly Digits">
+        <meta property="og:description" content="El Digito: AI Handwriter">
+        <meta property="og:image" itemprop="image" content="preview.png">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://ugly-digits.herokuapp.com/">
+        <meta property="twitter:title" content="Ugly Digits">
+        <meta property="twitter:description" content="El Digito: AI Handwriter">
+        <meta property="twitter:image" itemprop="image" content="preview.png">
+
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="icon" href="favicon.ico" />
+        <meta charset="UTF-8">
+        <style>
+            * {
+                font-size: 30px;
+            }
+        </style>
+
+        <link rel="stylesheet" href="css/slider.css">
+        <link rel="stylesheet" href="css/button.css">
+        <link rel="stylesheet" href="css/loader.css">
+        <link rel="stylesheet" href="css/dark.css">
+        <script src="js/generator.js"></script>
+        <script src="js/loading.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    </head>
+
+    <body>
+        <center>
+            <span style="font-size:15px; color:grey">An AI based Handwritten digit generator built upon GAN</span>
+            <div id="loaderid" class="loader">Loading...</div>
+            <p style="font-size:20px;" id="loadertext">Loading the model, this might take a few seconds :)</p>
+            <div id="slider1" class="slidecontainer">
+                <input type="range" min="-25" max="25" value="0" class="slider" id="slider">
+            </div>
+            <p>
+                <button id = "button-generate" class = "button" align = "center" onclick="generate()"> Generate </button>
+            </p>
+            <p><b><i>Random Slider Input: <span id="value"></span></i></b></p>
+            <canvas id="canvas1" width="128" height="128" style="border:1px solid #d3d3d3;">Image</canvas>
+            <div>
+                <p><span style="color: purple;"><strong>What is El Digito?</strong></span></p>
+
+                <p style="font-size:25px; color:grey"">El Digito is an AI agent, which creates random digits which look like human-handwritten digits. El Digito works on the principle of <a href="https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/">GAN</a>, a generative model.</p>
+
+                <p><span style="color: purple;"><strong>What does the Custom Slider Input do?</strong></span></p>
+
+                <p style="font-size:25px; color:grey">The model needs a gaussian sample array. Each time you press Generate, a random gaussian sample array is generated of mean equaling the Slider Input. Each Input Number represents a visually similar cluster of digits. Also, closer numbers (for ex: 6 and 8 would generate similar digts only)</p>
+                <p>developed by <a target='_blank' href="https://sayan1999.github.io/">Sayan Dey</a></p>
+            </div>
+        </center>
+
+        <script>
+            var slider = document.getElementById("slider");
+            var output = document.getElementById("value");
+            output.innerHTML = slider.value; // Display the default slider value
+
+            // Update the current slider value (each time you drag the slider handle)
+            slider.oninput = function() {
+                output.innerHTML = this.value;
+            }
+        </script>
+    </body>
+</html>
